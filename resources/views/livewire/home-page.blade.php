@@ -295,7 +295,7 @@
                         <div class="p-3 ">
                             <div class="flex items-center justify-between gap-2 mb-2">
                                 <h3 class="text-xl font-medium dark:text-gray-400">
-                                    {{ $menu->name }}
+                                    {{ $menu->name }} - {{ $menu->category->name }}
                                 </h3>
                             </div>
                             <p class="text-lg ">

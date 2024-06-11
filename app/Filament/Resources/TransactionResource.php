@@ -59,6 +59,11 @@ class TransactionResource extends Resource
                                     'canceled' => 'heroicon-m-x-circle'
                                 ]),
 
+                        Forms\Components\FileUpload::make('proof_of_payment')
+                            ->image()
+                            ->directory('proof_of_payment')
+                            ->columnSpanFull(),
+
                     ])->columns(2),
 
                     Forms\Components\Section::make('Order Items')->schema([
@@ -131,6 +136,8 @@ class TransactionResource extends Resource
                     ->sortable()
                     ->searchable(),
 
+                Tables\Columns\ImageColumn::make('proof_of_payment'),
+
                 Tables\Columns\TextColumn::make('grand_total')
                     ->numeric()
                     ->sortable()
@@ -139,7 +146,7 @@ class TransactionResource extends Resource
                 Tables\Columns\SelectColumn::make('status')
                     ->options([
                         'waiting' => 'Waiting',
-                        'sucess' => 'Success',
+                        'success' => 'Success',
                         'canceled' => 'Canceled'
                     ])->searchable()->sortable(),
 
@@ -166,7 +173,7 @@ class TransactionResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+            RelationManagers\AddressRelationManager::class,
         ];
     }
 

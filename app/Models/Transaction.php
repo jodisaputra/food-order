@@ -20,4 +20,9 @@ class Transaction extends Model
     {
         return $this->hasMany(TransactionItem::class);
     }
+
+    public function address()
+    {
+        return $this->hasOne(Address::class);
+    }
 }

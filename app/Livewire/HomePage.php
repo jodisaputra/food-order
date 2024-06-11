@@ -31,7 +31,7 @@ class HomePage extends Component
         $menus = Menu::query()->where('is_active', 1);
         return view('livewire.home-page', [
             'categories' => $categories,
-            'menus' => $menus->paginate(2),
+            'menus' => $menus->paginate(10),
         ]);
     }
 }
